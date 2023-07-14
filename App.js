@@ -6,7 +6,12 @@ import SignUp from "./pages/signupIn/Signup"
 import F1 from "./pages/forgetPass/ForgetPass1"
 import F2 from "./pages/forgetPass/ForgetPass2"
 import F3 from "./pages/forgetPass/ForgetPass3"
-import HomeUser from './pages/user/HomeUser';
+import HomeUser from './pages/user/HomeUser'
+import Set from './pages/user/SettingsUser'
+import Winch from './pages/user/Winch'
+import Mech from './pages/user/MechanicWorkshop'
+import Ri from './pages/user/Review'
+import MessLi from './pages/user/MessagesList'
 export default function App() {
   return (
     <View style={styles.container}>
@@ -16,7 +21,12 @@ export default function App() {
       {/* <F1 /> */}
       {/* <F2 /> */}
       {/* <F3 /> */}
-      <HomeUser />
+      {/* <HomeUser /> */}
+      {/* <Set /> */}
+      {/* <Winch /> */}
+      {/* <Mech /> */}
+      {/* <Ri /> */}
+      <MessLi />
     </View>
   );
 }
