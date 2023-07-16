@@ -12,6 +12,7 @@ import Winch from './pages/user/Winch'
 import Mech from './pages/user/MechanicWorkshop'
 import Ri from './pages/user/Review'
 import MessLi from './pages/user/MessagesList'
+import HomeOther from './pages/other/HomeOther'
 export default function App() {
   return (
     <View style={styles.container}>
@@ -26,7 +27,8 @@ export default function App() {
       {/* <Winch /> */}
       {/* <Mech /> */}
       {/* <Ri /> */}
-      <MessLi />
+      {/* <MessLi /> */}
+      <HomeOther />
     </View>
   );
 }
