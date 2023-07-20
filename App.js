@@ -11,8 +11,10 @@ import Set from './pages/user/SettingsUser'
 import Winch from './pages/user/Winch'
 import Mech from './pages/user/MechanicWorkshop'
 import Ri from './pages/user/Review'
-import MessLi from './pages/user/MessagesList'
+import MessLi from './pages/chat/MessagesList'
 import HomeOther from './pages/other/HomeOther'
+import SetOther from './pages/other/SettingsOther'
+import Chat from './pages/chat/Chat';
 export default function App() {
   return (
     <View style={styles.container}>
@@ -28,7 +30,9 @@ export default function App() {
       {/* <Mech /> */}
       {/* <Ri /> */}
       {/* <MessLi /> */}
-      <HomeOther />
+      {/* <HomeOther />/ */}
+      {/* <SetOther /> */}
+      {/* <Chat /> */}
     </View>
   );
 }
