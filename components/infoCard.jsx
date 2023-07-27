@@ -21,7 +21,7 @@ import Chat from '../assets/gen/Group.png'
 import StarOn from '../assets/gen/starOn.png'
 import StarOff from '../assets/gen/starOff.png'
 import arrow from '../assets/gen/Arrow3(1).png'
-export default function infoCard() {
+export default function infoCard({ navigation }) {
     const [img, setImg] = useState('');
     const [city, setCity] = useState('Naser City');
     const [phone, setPhone] = useState('+20123456789');
@@ -80,7 +80,10 @@ export default function infoCard() {
                     <TouchableOpacity>
                         <Image source={Chat} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.signBu}>
+                    <TouchableOpacity style={styles.signBu} onPress ={()=>{
+                        navigation.navigate("Ri")
+                        setModalVisible(false)
+                    }}>
                             <View style={styles.loginButTxtView}>
                                 <Text style={styles.loginButTxt}>Write Review</Text>
                             </View>

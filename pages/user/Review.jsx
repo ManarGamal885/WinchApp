@@ -23,7 +23,7 @@ import Chat from '../../assets/gen/Group.png'
 import StarOn from '../../assets/gen/starOn.png'
 import StarOff from '../../assets/gen/starOff.png'
 import arrow from '../../assets/gen/Arrow3(1).png'
-export default function Review() {
+export default function Review({ navigation }) {
     const [name, setName] = useState('Mike Adams');
     const [star1, setstar1] = useState(false);
     const [star2, setstar2] = useState(false);
@@ -100,7 +100,9 @@ export default function Review() {
             setstar5(true)
         }
     }
-
+    const handelSubmit = () => {
+        navigation.navigate("Winch")
+    }
     return (
         <View style={styles.cont}>
             <View style={styles.animation0}>
@@ -110,7 +112,7 @@ export default function Review() {
                 </View>
             </View>
             <View style={styles.cont1}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>{navigation.navigate("Winch")}} >
                     <Image source={arrow} style={styles.arrow} />
                 </TouchableOpacity>
                 <View style={styles.imgInfocont}>
@@ -152,14 +154,14 @@ export default function Review() {
                 </View>
                 <Text style={styles.review}>Review</Text>
                 <TextInput
-                    style={styles.inputView} 
+                    style={styles.inputView}
                     multiline
                     scrollEnabled
                     textAlignVertical="top"
-                    />
-                <TouchableOpacity style={styles.signBu}>
+                />
+                <TouchableOpacity style={styles.signBu} onPress={handelSubmit}>
                     <View style={styles.loginButTxtView}>
-                        <Text style={styles.loginButTxt}>Sign Up</Text>
+                        <Text style={styles.loginButTxt}>Submit</Text>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -197,7 +199,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 40,
+        marginTop: 10,
     },
     animation0: {
         flex: 1,
@@ -274,7 +276,7 @@ const styles = StyleSheet.create({
         elevation: 2,
         paddingHorizontal: 10,
         paddingVertical: 10,
-   
+
     },
     signBu: {
         width: 328,

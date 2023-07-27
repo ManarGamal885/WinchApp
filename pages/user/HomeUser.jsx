@@ -21,7 +21,7 @@ import winch from '../../assets/others/towtruck.png'
 import mech from '../../assets/others/mech.png'
 import arrow from '../../assets/gen/Arrow3(1).png'
 import chatImg from '../../assets/gen/cahtIm.png'
-export default function HomeUser() {
+export default function HomeUser({ navigation }) {
     const [name, setName] = useState('Mary Morgan')
     const [modalVisible, setModalVisible] = useState(false);
     return (
@@ -44,15 +44,24 @@ export default function HomeUser() {
                         >
                             <Image source={arrow} style={styles.arrow} />
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress ={()=>{
+                            navigation.navigate("Set")
+                            setModalVisible(false);
+                        }}>
                             <Text style={styles.txtSettings}>Settings</Text>
                         </TouchableOpacity>
                         <Text style={styles.line}>─────────────</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress ={()=>{
+                            navigation.navigate("Login")
+                            setModalVisible(false);
+                            }}>
                             <Text style={styles.txtSettingsLog}>Logout</Text>
                         </TouchableOpacity>
                         <Text style={styles.line}>─────────────</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress ={()=>{
+                            navigation.navigate("MessLi")
+                            setModalVisible(false);
+                            }}>
                             <Image source={chatImg} style={styles.chatIm} />
                         </TouchableOpacity>
                     </View>
@@ -72,10 +81,10 @@ export default function HomeUser() {
             </View>
 
             <View style={styles.home}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress ={()=>{navigation.navigate("Winch")}} >
                     <Image source={winch} style={styles.winch} />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress ={()=>{navigation.navigate("Mech")}} >
                     <Image source={mech} style={styles.mech} />
                 </TouchableOpacity>
             </View>

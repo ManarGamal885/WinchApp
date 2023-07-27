@@ -16,11 +16,18 @@ import React, {
 import Logo from '../../assets/gen/Logo.png'
 import Colors from "../../colors"
 import Arrow from '../../assets/gen/Arrow3.png'
-export default function ForgetPass1() {
+export default function ForgetPass1({navigation}) {
+    const handelSendCode =()=>{
+        navigation.navigate("F2")
+    }
+    const handelArrow =()=>{
+        navigation.navigate("Login")
+    }
     return (
         <View style={styles.container}>
             <TouchableOpacity
                 style={styles.arrow}
+                onPress={handelArrow}
             >
                 <Image
                     source={Arrow}
@@ -44,7 +51,7 @@ export default function ForgetPass1() {
                     </View>
                 </View>
                 <View>
-                    <TouchableOpacity style={styles.signBu}>
+                    <TouchableOpacity style={styles.signBu} onPress={handelSendCode}>
                         <View style={styles.loginButTxtView}>
                             <Text style={styles.loginButTxt}>Send Code</Text>
                         </View>

@@ -20,16 +20,30 @@ import userPic from '../../assets/others/person.jpg'
 import arrow from '../../assets/gen/Arrow3(1).png'
 import ImageCam from '../../assets/gen/cam.png'
 
-export default function settings() {
+export default function settings({ navigation }) {
   const [name, setName] = useState('Mary Morgan')
-
+  const [userJop, setuserJop] = useState("user")
+  const handelConfirm = () => {
+    if (userJop == "user") {
+      navigation.navigate("HomeUser")
+    }
+    else {
+      navigation.navigate("HomeOther")
+    }
+  }
+  const handelArrow = () => {
+    if (userJop == "user") {
+      navigation.navigate("HomeUser")
+    }
+    else {
+      navigation.navigate("HomeOther")
+    }
+  }
   return (
     <View style={styles.container}>
       <View style={styles.cover}>
         <TouchableOpacity
-          onPress={() => {
-            setModalVisible(true)
-          }}
+          onPress={handelArrow}
           style={styles.popsStyle} >
           <Image source={arrow} style={styles.arrow} />
         </TouchableOpacity>
@@ -65,7 +79,7 @@ export default function settings() {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.signBu}>
+        <TouchableOpacity style={styles.signBu} onPress={handelConfirm}>
           <View style={styles.loginButTxtView}>
             <Text style={styles.loginButTxt}>Confirm</Text>
           </View>
@@ -87,13 +101,13 @@ const styles = StyleSheet.create({
     fontFamily: Colors.fontFamily,
     fontWeight: "bold",
     color: "#fff",
-    marginTop:5
-},
+    marginTop: 5
+  },
   loginButTxtView: {
     alignItems: "center",
     justifyContent: "center",
     marginTop: 15
-},
+  },
   signBu: {
     width: 328,
     height: 59,
@@ -102,7 +116,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 15,
     backgroundColor: '#708696',
     marginTop: 15,
-},
+  },
   inpText: {
     fontFamily: Colors.fontFamily,
     fontSize: 13,

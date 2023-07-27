@@ -17,13 +17,22 @@ import Colors from "../../colors"
 import ChatCard from "../../components/chatCard"
 import arrow from '../../assets/gen/Arrow3(1).png'
 
-export default function MessagesList() {
+export default function MessagesList({ navigation }) {
+    const [userJop, setuserJop] = useState("user")
+    const handelArrow = () => {
+        if (userJop == "user") {
+          navigation.navigate("HomeUser")
+        }
+        else {
+          navigation.navigate("HomeOther")
+        }
+      }
     return (
         <View style={styles.cont}>
             <View style={styles.headerCont}>
 
                 <View style={styles.arrowCont}>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress ={handelArrow}>
                         <Image source={arrow} style={styles.arrow} />
                     </TouchableOpacity>
                 </View>

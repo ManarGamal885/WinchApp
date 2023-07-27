@@ -18,7 +18,17 @@ import Colors from "../../colors"
 import InfoCard from "../../components/infoCard";
 import Search from '../../assets/gen/search.png'
 import arrow from '../../assets/gen/Arrow3(1).png'
-export default function MechanicWorkshop() {
+export default function MechanicWorkshop({ navigation }) {
+    const [userJop, setuserJop] = useState("user")
+    const handelArrow =()=>{
+        if (userJop == "user") {
+            navigation.navigate("HomeUser")
+        }
+        else{
+            navigation.navigate("HomeOther")
+        }
+        
+    }
     return (
         <View style={styles.container} >
             <View style={styles.animation0}>
@@ -27,10 +37,8 @@ export default function MechanicWorkshop() {
                 <View style={styles.animation1}>
                 </View>
             </View>
-
             <View style={styles.searchView}>
                 <View style={styles.searchContent}>
-
                     <TouchableOpacity>
                         <Image
                             source={Search}
@@ -42,7 +50,8 @@ export default function MechanicWorkshop() {
                 <Text style={styles.line}>───────────────────────────────</Text>
             </View>
             <View style={styles.arrowView}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={handelArrow}>
                     <Image
                         source={arrow} style={styles.arrow}
                     />
@@ -50,8 +59,7 @@ export default function MechanicWorkshop() {
 
             </View>
             <View style={styles.container2}>
-
-                <InfoCard />
+                <InfoCard navigation={navigation} />
             </View>
 
 
@@ -68,7 +76,7 @@ const styles = StyleSheet.create({
     line: {
         color: Colors.buttons,
         opacity: 0.6,
-        marginLeft:10
+        marginLeft: 10
     },
     imgSearch: {
         width: 40,
@@ -90,7 +98,7 @@ const styles = StyleSheet.create({
     searchView: {
         width: '90%',
         height: '9%',
-        
+
     },
     container: {
         flex: 1,

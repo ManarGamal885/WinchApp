@@ -25,6 +25,15 @@ export default function Login({ navigation }) {
         icon ? setIcon(false) : setIcon(true);
     };
     let imageSource = icon ? PassIconInV : PassIconV;
+    const handelLogin =()=>{
+        navigation.navigate("HomeUser")
+    }
+    const handelForgetPass =()=>{
+        navigation.navigate("F1")
+    }
+    const handelSignUp =()=>{
+        navigation.navigate("SignUp")
+    }
     return (
         <View style={styles.container}>
             {/* <ScrollView> */}
@@ -89,13 +98,13 @@ export default function Login({ navigation }) {
                         }
                     </View>
                     <View>
-                        <TouchableOpacity style={styles.loginBu}>
+                        <TouchableOpacity style={styles.loginBu}  onPress={handelLogin}>
                             <View style={styles.loginButTxtView}>
                                 <Text style={styles.loginButTxt}>Login</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={handelForgetPass}>
                         <View style={styles.forgetTxtView}>
                             <Text style={styles.forgetTxt}>Forget Password ?</Text>
                         </View>
@@ -104,7 +113,7 @@ export default function Login({ navigation }) {
                         <Text style={styles.orTxt}>Or</Text>
                     </View>
                     <View>
-                        <TouchableOpacity style={styles.signBu}>
+                        <TouchableOpacity style={styles.signBu} onPress={handelSignUp}>
                             <View style={styles.loginButTxtView}>
                                 <Text style={styles.loginButTxt}>Sign Up</Text>
                             </View>

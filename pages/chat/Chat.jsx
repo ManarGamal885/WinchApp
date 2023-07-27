@@ -19,17 +19,15 @@ import pop from '../../assets/gen/poDark.png'
 import ms from '../../assets/gen/messagesend.png'
 import photoSent from '../../assets/gen/imageSend.png'
 import mechP from '../../assets/others/mechPerson.jpg'
-export default function Chat() {
+export default function Chat({ navigation }) {
     const [name, setName] = useState('Mike Adams');
     const [profImage, setprofImage] = useState('');
     const [messageList, setmessageList] = useState([]);
-    // setmessageList (mechP);
     return (
-
         <View style={styles.container}>
             <View style={styles.header}>
                 <View style={styles.arrowCont}>
-                    <TouchableOpacity style={styles.arrow}>
+                    <TouchableOpacity style={styles.arrow} onPress={navigation.navigate("HomeOther")}>
                         <Image source={arrow} style={styles.arrow} />
                     </TouchableOpacity>
                 </View>
@@ -51,7 +49,7 @@ export default function Chat() {
                     <Text style={styles.fsendMessage}>Where are you?</Text>
                 </View>
                 <View style={styles.recivedMessage}>
-                    <Text  style={styles.frecivedMessage}>is this your car?</Text>
+                    <Text style={styles.frecivedMessage}>is this your car?</Text>
                 </View>
             </View>
             <View style={styles.sendingBox}>
@@ -90,7 +88,7 @@ const styles = StyleSheet.create({
     messageCont: {
         width: '100%',
         height: '82%',
-        flexDirection:'column'
+        flexDirection: 'column'
     },
     sendingBox: {
         width: '100%',
@@ -146,29 +144,29 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    sendMessage:{
+    sendMessage: {
         maxWidth: "80%",
         padding: 10,
-        height:42,
-        backgroundColor:Colors.cover2,
+        height: 42,
+        backgroundColor: Colors.cover2,
         alignSelf: "flex-end",
-        marginTop:10,
-        marginRight:10,
-        borderTopRightRadius:20,
-        borderTopLeftRadius:20,
-        borderBottomLeftRadius:20
+        marginTop: 10,
+        marginRight: 10,
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        borderBottomLeftRadius: 20
     },
-    recivedMessage:{
+    recivedMessage: {
         maxWidth: "80%",
         padding: 10,
-        height:42,
-        backgroundColor:'#F5F5F5',
+        height: 42,
+        backgroundColor: '#F5F5F5',
         alignSelf: "flex-start",
-        marginTop:10,
-        marginLeft:10,
-        borderTopRightRadius:20,
-        borderTopLeftRadius:20,
-        borderBottomRightRadius:20
+        marginTop: 10,
+        marginLeft: 10,
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        borderBottomRightRadius: 20
     },
     arrow: {
         width: 8,
@@ -199,19 +197,19 @@ const styles = StyleSheet.create({
         width: 29,
         height: 26,
     },
-    inputMessage:{
-        width:'100%',
-        height:31,
-        backgroundColor:'#F4F3F3',
-        borderRadius:50,
-        paddingHorizontal:10
+    inputMessage: {
+        width: '100%',
+        height: 31,
+        backgroundColor: '#F4F3F3',
+        borderRadius: 50,
+        paddingHorizontal: 10
     },
-    fsendMessage:{
+    fsendMessage: {
         fontFamily: Colors.fontFamily,
         fontSize: 13,
         color: '#FFFFFF',
     },
-    frecivedMessage:{
+    frecivedMessage: {
         fontFamily: Colors.fontFamily,
         fontSize: 13,
         color: '#000',

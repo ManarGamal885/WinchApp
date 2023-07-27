@@ -24,7 +24,7 @@ import chatImg from '../../assets/gen/cahtIm.png'
 import StarOn from '../../assets/gen/starOn.png'
 import StarOff from '../../assets/gen/starOff.png'
 import ReviewCard from '../../components/reviewCard'
-export default function HomeUser() {
+export default function HomeUser({ navigation }) {
     const [name, setName] = useState('Mohamed Ali')
     const [modalVisible, setModalVisible] = useState(false);
     const [rate, setRate] = useState(2);
@@ -61,15 +61,24 @@ export default function HomeUser() {
                         >
                             <Image source={arrow} style={styles.arrow} />
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate("SetOther")
+                            setModalVisible(false);
+                        }}>
                             <Text style={styles.txtSettings}>Settings</Text>
                         </TouchableOpacity>
                         <Text style={styles.line}>─────────────</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate("Login")
+                            setModalVisible(false);
+                        }}>
                             <Text style={styles.txtSettingsLog}>Logout</Text>
                         </TouchableOpacity>
                         <Text style={styles.line}>─────────────</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate("MessLi")
+                            setModalVisible(false);
+                        }}>
                             <Image source={chatImg} style={styles.chatIm} />
                         </TouchableOpacity>
                     </View>

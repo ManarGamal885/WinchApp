@@ -44,7 +44,6 @@ export default function Signup({ navigation }) {
             setRadio(true)
             setuserJop('user')
         }
-
     }
     const clickRadiodm = () => {
         if (radio1) {
@@ -61,6 +60,19 @@ export default function Signup({ navigation }) {
     let imageRadio1 = radio1 ? On : Off
     let imageSource = icon ? PassIconInV : PassIconV;
     let imageSource1 = icon1 ? PassIconInV : PassIconV;
+    const handelSignUp =()=>{
+        if (userJop == "user") {
+            navigation.navigate("HomeUser")
+        }
+        else{
+            navigation.navigate("HomeOther")
+        }
+        
+    }
+    const handelSignIn =()=>{
+        navigation.navigate("Login")
+        
+    }
     return (
         <View style={styles.container}>
             
@@ -201,7 +213,7 @@ export default function Signup({ navigation }) {
                         </View>
                     </View>
                     <View>
-                        <TouchableOpacity style={styles.signBu}>
+                        <TouchableOpacity style={styles.signBu} onPress={handelSignUp}>
                             <View style={styles.loginButTxtView}>
                                 <Text style={styles.loginButTxt}>Sign Up</Text>
                             </View>
@@ -209,7 +221,7 @@ export default function Signup({ navigation }) {
                     </View>
                     <View style={styles.alreadyAcView}>
                         <Text style={styles.alreadyAcTxt}>Already have an account?</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={handelSignIn}>
                             <Text style={styles.alreadyAcTxtSignIN}>Sign In</Text>
                         </TouchableOpacity>
                     </View>

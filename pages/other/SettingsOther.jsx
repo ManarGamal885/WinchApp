@@ -20,14 +20,17 @@ import userPic from '../../assets/others/person.jpg'
 import arrow from '../../assets/gen/Arrow3(1).png'
 import ImageCam from '../../assets/gen/cam.png'
 
-export default function SettingsOther() {
+export default function SettingsOther({ navigation }) {
+    const handelConfirm = ()=>{
+        navigation.navigate("HomeOther")
+    }
     const [name, setName] = useState('Mary Morgan')
     return (
         <View style={styles.container}>
             <View style={styles.cover}>
                 <TouchableOpacity
                     onPress={() => {
-                        setModalVisible(true)
+                        navigation.navigate("HomeOther")
                     }}
                     style={styles.popsStyle} >
                     <Image source={arrow} style={styles.arrow} />
@@ -64,15 +67,15 @@ export default function SettingsOther() {
                 </View>
                 <View style={styles.firstLastCont1} >
                     <View style={styles.firstView}>
-                        <Text style={styles.inpText}>Firest Name</Text>
+                        <Text style={styles.inpText}>City</Text>
                         <TextInput style={styles.textCont2} />
                     </View>
                     <View style={styles.lasttView}>
-                        <Text style={styles.inpText}>Last Name</Text>
+                        <Text style={styles.inpText}>Car Number</Text>
                         <TextInput style={styles.textCont2} />
                     </View>
                 </View>
-                <TouchableOpacity style={styles.signBu}>
+                <TouchableOpacity style={styles.signBu} onPress={handelConfirm}>
                     <View style={styles.loginButTxtView}>
                         <Text style={styles.loginButTxt}>Confirm</Text>
                     </View>

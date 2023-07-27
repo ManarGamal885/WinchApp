@@ -18,7 +18,17 @@ import Colors from "../../colors"
 import InfoCard from "../../components/infoCard";
 import Search from '../../assets/gen/search.png'
 import arrow from '../../assets/gen/Arrow3(1).png'
-export default function Winch() {
+export default function Winch({ navigation }) {
+    const [userJop, setuserJop] = useState("user")
+    const handelArrow =()=>{
+        if (userJop == "user") {
+            navigation.navigate("HomeUser")
+        }
+        else{
+            navigation.navigate("HomeOther")
+        }
+        
+    }
     return (
         <View style={styles.container} >
             <View style={styles.animation0}>
@@ -42,7 +52,7 @@ export default function Winch() {
                 <Text style={styles.line}>───────────────────────────────</Text>
             </View>
             <View style={styles.arrowView}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={handelArrow} >
                     <Image
                         source={arrow} style={styles.arrow}
                     />
@@ -50,10 +60,8 @@ export default function Winch() {
 
             </View>
             <View style={styles.container2}>
-                <InfoCard />
+                <InfoCard navigation={navigation}/>
             </View>
-
-
         </View>
     )
 }
